@@ -1,0 +1,61 @@
+<!-- apply-course.component.html
+
+<div class="container mt-5">
+    <div class="card">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th *ngFor="let day of days">{{ day.name }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let timeSlot of timeSlots">
+                <td *ngFor="let day of days">
+                    <button class="btn btn-outline-primary" 
+                            (click)="selectTime(day, timeSlot)"
+                            [class.selected]="isSelected(day, timeSlot)">
+                      {{ timeSlot }}
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+  
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <table class="table table-dark table-striped">
+            ...
+          </table>
+    </div>
+  </div> -->
+
+
+<!-- apply-course.component.html -->
+
+<div class="container mt-5 d-flex justify-content-center">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let day of days">{{ day }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let timeSlot of timeSlots">
+          <td *ngFor="let day of days">
+            <button 
+              class="btn custom-btn" 
+              [ngClass]="{'buttonSelected': isSelected(timeSlot.time, day)}"
+              (click)="buttonClick(timeSlot.time, day)">
+              {{timeSlot.time}}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+
